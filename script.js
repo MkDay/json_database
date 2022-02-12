@@ -1,4 +1,3 @@
-"use strict";
 const quality1 = document.querySelectorAll('.q1-score');
 const quality2 = document.querySelectorAll('.q2-score');
 const quality3 = document.querySelectorAll('.q3-score');
@@ -32,7 +31,7 @@ getDatabase()
 
 */
 
-fetch('meditation_database.json').then((response) => {
+fetch('database.json').then((response) => {
 
   test.textContent = response;
 
