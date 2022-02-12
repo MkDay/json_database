@@ -31,7 +31,7 @@ getDatabase()
 
 */
 
-fetch('database.json').then((response) => {
+fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json').then((response) => {
 
   test.textContent = response;
 
