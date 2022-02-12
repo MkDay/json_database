@@ -32,7 +32,7 @@ getDatabase()
 
 */
 
-fetch('meditation_database.json').then((response) => {
+fetch('https://github.com/MkDay/json_database/blob/main/meditation_database.json').then((response) => {
 
   test.textContent = response;
 
