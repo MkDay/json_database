@@ -32,7 +32,7 @@ getDatabase()
 
 */
 
-fetch('./meditation_database.json').then((response) => {
+fetch('meditation_database.json').then((response) => {
 
   test.textContent = response;
 
