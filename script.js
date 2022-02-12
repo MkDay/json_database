@@ -32,7 +32,7 @@ getDatabase()
 
 */
 
-fetch('.\database.json').then((response) => {
+fetch('./database.json').then((response) => {
 
   test.textContent = response;
 
