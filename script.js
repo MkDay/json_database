@@ -254,7 +254,7 @@ const postRequest = () => {
      if((Number.isNaN(postList[i][j])=== false) {
         
         fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json', {
-          method: 'POST',
+          method: 'PUT',
           body: JSON.stringify({
            year: 2022,
            scores: {
