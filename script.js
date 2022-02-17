@@ -250,7 +250,7 @@ const postRequest = () => {
  for(let i=0; i<5; i++) {
    for(let j=0; j<31; j++) {
      if((Number.isNaN(postList[i][j])=== false) {
-        fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json', {
+        fetch('./database.json', {
           method: 'POST',
           body: JSON.stringify(
                                      
