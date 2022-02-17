@@ -250,12 +250,18 @@ const postRequest = () => {
  for(let i=0; i<5; i++) {
    for(let j=0; j<31; j++) {
      if((Number.isNaN(postList[i][j])=== false) {
+        
         fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json', {
           method: 'POST',
-          body: JSON.stringify(
-                                     
-          data[0].scores[monthList[chosenMonth - 1]] = postList[i][j]
-          ),
+          body: JSON.stringify({
+           year: 2022,
+           scores: {
+             monthList[chosenMonth - 1]: {
+               qualityList[i]: postList[i]
+             } 
+           }
+          //data[0].scores[monthList[chosenMonth - 1]] = postList[i][j]
+          }),
           headers: { 
             'Content-type': 'application/json' 
             }
