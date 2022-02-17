@@ -257,7 +257,7 @@ const postRequest = () => {
           data[0].scores[monthList[chosenMonth - 1]] = postList[i][j]
           ),
           headers: { 
-            'Content-type': 'application/json; charset=UTF-8', 
+            'Content-type': 'application/json' 
             }
                                       
         })
