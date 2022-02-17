@@ -276,7 +276,7 @@ const postRequest = () => {
 
 btn.addEventListener('click', (e) => {
   
-  //postRequest();
+  postRequest();
   
   
   let sakko = document.querySelector('#sakko').getContext('2d');
