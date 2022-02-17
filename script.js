@@ -164,7 +164,7 @@ getDatabase(chosenMonth)
  scoreList[3] = m.suwachochassa;
  scoreList[4] = m.mudu;
  
- test.textContent = scoreList[0];
+ //test.textContent = scoreList[0];
  //test.textContent = "resolved! " + scores5;
 })
  .catch((err) => {
@@ -250,7 +250,7 @@ const postRequest = () => {
  for(let i=0; i<5; i++) {
    for(let j=0; j<31; j++) {
      if((Number.isNaN(postList[i][j])=== false) {
-        fetch('./database.json', {
+        fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json', {
           method: 'POST',
           body: JSON.stringify(
                                      
@@ -262,7 +262,7 @@ const postRequest = () => {
                                       
         })
         .then((response) => response.json())
-        .then((json) => console.log(json))
+        .then((json) => test.textContent = json //console.log(json))
         .catch((err) => {
           console.log('we have some error: ' + err.message);
         });
