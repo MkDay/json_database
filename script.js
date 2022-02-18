@@ -275,7 +275,7 @@ const postRequest = () => {
       let ql = '' + qualityList[i];
       
       
-        fetch('database.json', {
+        fetch('https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json', {
           method: 'POST',
           body: JSON.stringify({
              year: 2022,
