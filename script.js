@@ -275,7 +275,7 @@ const postRequest = () => {
       let ql = '' + qualityList[i];
       
       
-        fetch('./database.json', {
+        fetch('database.json', {
           method: 'POST',
           body: JSON.stringify({
              year: 2022,
