@@ -10,6 +10,9 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 
@@ -17,22 +20,32 @@
 
 <body id="body">
 
-<h1>නිවනට සුදුසුකම්</h1>
+<header>
+<h1>නිවනට මග</h1>
+
+</header>
 
 
-<div class="date-picker" id="today">අද</div>
+<div id="wrapper">
+<div id="wrapper-top">
+
+<div class="date-picker" id="today">අද: </div>
 <div class="date-picker">
-<label for="calendar">දවස තෝරන්න</label>
+<label for="calendar">දවස තෝරන්න: </label>
 <input id="calendar" type="date">
 </div>
+
+<div id="table-wrapper">
+
 
 
 <table>
 <thead>
  <tr>
    <th>Number</th>
-   <th>සුදුසුකම් (පාලි)</th>
-   <th> සුදුසුකම් (සිංහල) </th>
+   <th>සුදුසුකම් <br>(පාලි)</th>
+   <th> සුදුසුකම් <br>(සිංහල) </th>
+   
    <th>Qualities</th>
    <th class="date-name">Day 1</th>
    <th class="date-name">Day 2</th>
@@ -65,13 +78,15 @@
    <th class="date-name">Day 29</th>
    <th class="date-name">Day 30</th>
    <th class="date-name">Day 31</th>
-  
+   <th>Qualities</th>
  </tr>
-</thead> 
+ </thead>
+ 
+ <tbody>
 
-<tbody>
- <tr id="Quality1">
-   <td>1</td>
+<tr id="quality-1">
+  
+    <td>1</td>
    <td>සක්කෝ <br>(Sakko)</td>
    <td>නිවන්මඟ පරිපූර්ණ කරගැනීමට දක්ෂයි</td>
    <td>Expertise In Activities going on the path</td>
@@ -107,134 +122,138 @@
    <td class="q1-days"></td>
    <td class="q1-days"></td>
    <td class="q1-days"></td>
-   
+   <td>සක්කෝ <br>(Sakko)</td>
 
  </tr>
  
- <tr id="Quality2">
+ <tr id="quality-2">
+
    <td>2</td>
+    <td>උජූච <br>(Ujucha)</td>
+    <td>සිතින්, කයින්, වචනයෙන් අවංකබව</td>
+    <td>Be honest</td> 
+    
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
+   <td class="q2-days"></td>
    <td>උජූච <br>(Ujucha)</td>
-   <td>සිතින්, කයින්, වචනයෙන් අවංකබව</td>
-   <td>Be honest</td>
-   
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-   <td class="q2-days"></td>
-  
  </tr>
  
- <tr id="Quality3">
+ <tr id="quality-3">
+   
    <td>3</td>
+    <td>සුජූච <br>(Sujucha)</td>
+    <td>ඉතා අවංකබව</td>
+    <td>Very honest even from thinking</td>
+    
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
+   <td class="q3-days"></td>
    <td>සුජූච <br>(Sujucha)</td>
-   <td>ඉතා අවංකබව</td>
-   <td>Very honest even from thinking</td>
-   
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-   <td class="q3-days"></td>
-  
    
  </tr>
 
 
- <tr id="Quality4">
-   <td>4</td>
-   <td>සුවචෝචස්ස<br>(Suwachochassa)</td>
-   <td>අවවාදයන්හි කීකරුබව</td>
-   <td>Be Obedient</td>
-   
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
-   <td class="q4-days"></td>
+ <tr id="quality-4">
   
+   <td>4</td>
+    <td>සුවචෝචස්ස<br>(Suwachochassa)</td>
+    <td>අවවාදයන්හි කීකරුබව</td>
+    <td>Be Obedient</td>
+    
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td class="q4-days"></td>
+   <td>සුවචෝචස්ස<br>(Suwachochassa)</td>
  </tr>
  
- <tr id="Quality5">
-   <td>5</td>
+ <tr id="quality-5">
+ 
+    <td>5</td>
    <td>මුදු<br>(Mudu)</td>
    <td>මුදු ගති ඇතිබව</td>
    <td>Be soft talking and acting</td>
@@ -270,14 +289,20 @@
    <td class="q5-days"></td>
    <td class="q5-days"></td>
    <td class="q5-days"></td>
-
+  <td>මුදු<br>(Mudu)</td>
  </tr>
 </tbody>
 </table>
 
+</div> <!-- table-wrapper -->
+
+</div> <!-- wrapper-top -->
+
+<div id="wrapper-center">
 <button id="submit">ඇතුලත් කරන්න</button>
+</div> <!-- wrapper-center -->
 
-
+<div id="wrapper-bottom">
 <div id="container1">
 
  <h3>වැඩෙන ගුණ අනුව</h3>
@@ -295,7 +320,9 @@
 </div>
 
 <p id="test"></p>
-
+</div> <!-- wrapper-bottom -->
+</div> <!-- wrapper -->
 <script src="script.js"></script>
+
 </body>
 </html>
