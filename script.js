@@ -264,7 +264,7 @@ quality5.forEach((q) => {
 
 
 /* ============= POST request & create charts ================ */
-/*
+
 const postRequest = () => {
 
  for(let i=0; i<5; i++) {
@@ -298,12 +298,12 @@ const postRequest = () => {
 
 };
 
-*/
+
 
 btn.addEventListener('click', (e) => {
   
   
-  //postRequest();
+  postRequest();
   
   
   container1.style.visibility = 'visible';
