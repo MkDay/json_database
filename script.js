@@ -292,9 +292,10 @@ const postRequest = () => {
                                       
         })
         .then((response) => response.json())
-        .then((json) => console.log(json))
+        .then((json) => test.textContent += json)
         .catch((err) => {
-          console.log('we have some error: ' + err);
+          //console.log('we have some error: ' + err);
+         test.textContent += ' we have some error: ' + err;
         });
      }
    }
