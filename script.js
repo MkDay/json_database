@@ -155,7 +155,7 @@ const getChosenDate = () => {
 
 const getDatabase = async (chosenMonth) => {
  
-  const response = await fetch("https://raw.githubusercontent.com/MkDay/json_database/main/database.json");
+  const response = await fetch("https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json");
 
   const data = await response.json();
 
@@ -271,7 +271,7 @@ const postRequest = () => {
    for(let j=0; j<31; j++) {
      if(isNaN(postList[i][j])=== false) {
      
-        fetch('https://raw.githubusercontent.com/MkDay/json_database/main/database.json', {
+        fetch('https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json', {
           method: 'POST',
           body: JSON.stringify({
              year: 2022,
