@@ -1,1 +1,1 @@
-# json_database
+# meditation progress tracker
