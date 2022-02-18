@@ -271,16 +271,20 @@ const postRequest = () => {
    for(let j=0; j<31; j++) {
      if(isNaN(postList[i][j])=== false) {
      
+      let ml = '' + monthList[chosenMonth - 1];
+      let ql = '' + qualityList[i];
+      
+      
         fetch('https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json', {
           method: 'POST',
           body: JSON.stringify({
              year: 2022,
              scores: {
-               monthList[chosenMonth - 1]: {
-                 qualityList[i]: postList[i]
+               ml: {
+                 ql: postList[i]
                }
              }                      
-          //data[0].scores[monthList[chosenMonth - 1]] = postList[i][j];
+          
           }),
           headers: { 
             'Content-type': 'application/json; charset=UTF-8', 
@@ -288,9 +292,9 @@ const postRequest = () => {
                                       
         })
         .then((response) => response.json())
-        .then((json) => test.textContent = json)
+        .then((json) => console.log(json))
         .catch((err) => {
-          test.textContent = 'we have some error: ' + err;
+          console.log('we have some error: ' + err);
         });
      }
    }
