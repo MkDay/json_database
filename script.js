@@ -1,4 +1,7 @@
 "use strict";
+
+const url = 'https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json';
+
 const quality1 = document.querySelectorAll('.q1-days');
 const quality2 = document.querySelectorAll('.q2-days');
 const quality3 = document.querySelectorAll('.q3-days');
@@ -46,56 +49,83 @@ window.addEventListener('load', (e) => {
  calendar.value = String(year) + '-' + month + '-' + day;
  getChosenMonth();
  getChosenDate();
+ loadData();
  
 });
+
+/* ============= load data based on the calendar =========== */
+
+const getDatabase = async () => {
+ 
+  const response = await fetch(url);
+
+  const data = await response.json();
+
+  return data;
+};
+
+const loadData = () => {
+
+ getDatabase()
+ .then((data) => {
+
+ let m = data[0].scores[monthList[chosenMonth - 1]]; 
+ 
+ scoreList[0] = m.sakko;
+ scoreList[1] = m.ujucha;
+ scoreList[2] = m.sujucha;
+ scoreList[3] = m.suwachochassa;
+ scoreList[4] = m.mudu;
+ 
+ for(let k=0; k<31; k++) {
+     
+ 
+     if(chosenDate - 1 !== k) {
+     
+     quality1[k].textContent = scoreList[0][k];
+     quality2[k].textContent = scoreList[1][k];
+     quality3[k].textContent = scoreList[2][k];
+     quality4[k].textContent = scoreList[3][k];
+     quality5[k].textContent = scoreList[4][k];
+     }
+     
+     if(chosenDate - 1 === k) {
+       quality1[k].innerHTML = '';
+       quality2[k].innerHTML = '';
+       quality3[k].innerHTML = '';
+       quality4[k].innerHTML = '';
+       quality5[k].innerHTML = '';
+     
+       createSelect();
+       
+       quality1[k].querySelector('select').value = scoreList[0][k];
+       quality2[k].querySelector('select').value = scoreList[1][k];
+       quality3[k].querySelector('select').value = scoreList[2][k];
+       quality4[k].querySelector('select').value = scoreList[3][k];
+       quality5[k].querySelector('select').value = scoreList[4][k];                 
+     }
+   
+ }
+
+})
+ .catch((err) => {
+
+ test.textContent += "we got an error: " + err;
+});
+};
+
 
 calendar.addEventListener('change', (e) => {
   removePrev();
   getChosenMonth();
   getChosenDate();
+  loadData();
+  
 
 });
 
-const removePrev = () => {
+const createSelect = () => {
 
- for(let i=0; i<5; i++) {
- 
-   let qDayClass = '.q' + (i+1) + '-days';
-    
-   for(let j=0; j<31; j++) { 
-       
-     if(prevDate === (j + 1)) {
-       document.querySelectorAll(qDayClass)[j].innerHTML = "";
-     }
-   }
- }
-};
-
-
-const getChosenMonth = () => {
-  if(calendar.value !== "") {
-   chosenMonth = parseInt((calendar.value).slice(5, 7));
- 
-    
-  } else {
-    chosenMonth = date.getMonth();
-  }
-};
-
-
-const getChosenDate = () => {
-
- if(calendar.value !== "") {
-   chosenDate = parseInt((calendar.value).slice(8));
-   
-   
- } else {
-   chosenDate = date.getDate();
-   
- }
- 
- prevDate = chosenDate;
- 
  for(let i=0; i<5; i++) {
  
    let qDayClass = '.q' + (i+1) + '-days';
@@ -147,57 +177,52 @@ const getChosenDate = () => {
      } 
    }
  }
+    
+};
+
+const removePrev = () => {
+
+ for(let i=0; i<5; i++) {
  
+   let qDayClass = '.q' + (i+1) + '-days';
+    
+   for(let j=0; j<31; j++) { 
+       
+     if(prevDate === (j + 1)) {
+       document.querySelectorAll(qDayClass)[j].innerHTML = "";
+     }
+   }
+ }
 };
 
 
-/* ============= load data ============== */
+const getChosenMonth = () => {
 
-const getDatabase = async () => {
+  if(calendar.value !== "") {
+   chosenMonth = parseInt((calendar.value).slice(5, 7));
  
-  const response = await fetch("https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json");
-
-  const data = await response.json();
-
-  return data;
+    
+  } else {
+    chosenMonth = date.getMonth();
+  }
 };
 
 
-getDatabase()
- .then((data) => {
+const getChosenDate = () => {
 
- let m = data[0].scores[monthList[chosenMonth - 1]]; 
- 
- scoreList[0] = m.sakko;
- scoreList[1] = m.ujucha;
- scoreList[2] = m.sujucha;
- scoreList[3] = m.suwachochassa;
- scoreList[4] = m.mudu;
- 
- for(let i=0; i<31; i++) {
-     if(chosenDate - 1 !== i) {
-     quality1[i].textContent = scoreList[0][i];
-     quality2[i].textContent = scoreList[1][i];
-     quality3[i].textContent = scoreList[2][i];
-     quality4[i].textContent = scoreList[3][i];
-     quality5[i].textContent = scoreList[4][i];
-     }
-     
-     if(chosenDate - 1 === i) {
-       quality1[i].querySelector('select').value = scoreList[0][i];
-       quality2[i].querySelector('select').value = scoreList[1][i];
-       quality3[i].querySelector('select').value = scoreList[2][i];
-       quality4[i].querySelector('select').value = scoreList[3][i];
-       quality5[i].querySelector('select').value = scoreList[4][i];
-     }
+ if(calendar.value !== "") {
+   chosenDate = parseInt((calendar.value).slice(8));
+   
+   
+ } else {
+   chosenDate = date.getDate();
    
  }
+ 
+ prevDate = chosenDate;
+ 
+};
 
-})
- .catch((err) => {
-
- test.textContent += "we got an error: " + err;
-});
 
 /* ==================== get input ============================= */
 
@@ -206,8 +231,6 @@ quality1.forEach((q) => {
  
  q.addEventListener('change', (e) => {
    
-   /*let id = q.id; 
-   let index = (parseInt(id[id.length - 1])) - 1; */
    let index =  chosenDate - 1;
    postList[0][index] = e.target.value;
   });
@@ -217,9 +240,7 @@ quality1.forEach((q) => {
 quality2.forEach((q) => {
  
  q.addEventListener('change', (e) => {
-   
-   /*let id = q.id; 
-   let index = (parseInt(id[id.length - 1])) - 1;*/
+  
    let index =  chosenDate - 1;
    postList[1][index] = e.target.value;
   });
@@ -229,8 +250,6 @@ quality3.forEach((q) => {
  
  q.addEventListener('change', (e) => {
    
-  /* let id = q.id; 
-   let index = (parseInt(id[id.length - 1])) - 1;*/
    let index =  chosenDate - 1;
    postList[2][index] = e.target.value;
   });
@@ -241,8 +260,6 @@ quality4.forEach((q) => {
 
  q.addEventListener('change', (e) => {
    
-   /*let id = q.id;  
-   let index = (parseInt(id[id.length - 1])) - 1; */
    let index =  chosenDate - 1;
    postList[3][index] = e.target.value;
   });
@@ -252,13 +269,9 @@ quality4.forEach((q) => {
 quality5.forEach((q) => {
  
  q.addEventListener('change', (e) => {
-   //q.id = 'q5-day' + chosenDate;
+   
    let index = chosenDate - 1;
-   /*
-   let id = q.id; 
-   let index = (parseInt(id[id.length - 1])) - 1; */ 
    postList[4][index] = e.target.value; 
-   test.textContent = postList[4][index];
   });
 });
 
@@ -275,7 +288,7 @@ const postRequest = () => {
       let ql = '' + qualityList[i];
       
       
-        fetch('https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json', {
+        fetch(url, {
           method: 'POST',
           body: JSON.stringify({
              year: 2022,
@@ -439,5 +452,4 @@ let dailyChart = new Chart(daily, {
 * add style to graphs.
 * test it.
 */
-
 
