@@ -153,7 +153,7 @@ const getChosenDate = () => {
 
 /* ============= load data ============== */
 
-const getDatabase = async (chosenMonth) => {
+const getDatabase = async () => {
  
   const response = await fetch("https://raw.githubusercontent.com/MkDay/meditation_progress_tracker/main/database.json");
 
@@ -163,7 +163,7 @@ const getDatabase = async (chosenMonth) => {
 };
 
 
-getDatabase(chosenMonth, chosenDate)
+getDatabase()
  .then((data) => {
 
  let m = data[0].scores[monthList[chosenMonth - 1]]; 
@@ -196,7 +196,7 @@ getDatabase(chosenMonth, chosenDate)
 })
  .catch((err) => {
 
- test.textContent = "we got an error: " + err;
+ test.textContent += "we got an error: " + err;
 });
 
 /* ==================== get input ============================= */
